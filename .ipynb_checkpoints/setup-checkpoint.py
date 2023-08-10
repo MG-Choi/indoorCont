@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'indoorContact',
-    version = '0.0.2',
+    version = '0.0.4',
     description = "ABM pedestrian simulation counting indoor contact",
     url = 'https://github.com/MG-Choi/indoorCont.git',
     author = 'MoongiChoi',
@@ -37,7 +37,7 @@ random이나 os와 같이 깔려있는 library의 경우 위에 install_requires
 '''
 
 
-#repository: C:\Users\MoongiChoi\Desktop\MG\양식, 코드 등\Python\Library\indoorContact
+#repository: C:\Users\MoongiChoi\Desktop\MG\양식, 코드 등\Python\Library\indoorCont
 
 
 
