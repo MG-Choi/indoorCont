@@ -2,15 +2,15 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'indoorContact',
-    version = '0.0.1',
+    version = '0.0.2',
     description = "ABM pedestrian simulation counting indoor contact",
     url = 'https://github.com/MG-Choi/indoorCont.git',
     author = 'MoongiChoi',
     author_email = 'u1316663@utah.edu',
     packages = find_packages(),
-    package_data = {'indoorContact': ['sampleData/obstacle_space.csv']},
+    package_data = {'indoorContact': ['sampleData/obstacle_space.xlsx', 'sampleData/exp_space2.xlsx', 'sampleData/exp_space3.xlsx']},
     include_package_data = True,
-    install_requires = ['numpy==1.24.3', 'pandas==1.5.3', 'random2==1.0.1', 'SALib==1.4.7']
+    install_requires = ['matplotlib==3.7.1', 'pandas==1.5.3', 'numpy==1.24.3', 'tqdm==4.65.0', 'celluloid==0.2.0', 'seaborn==0.12.2']
 )
 
 
@@ -37,7 +37,7 @@ random이나 os와 같이 깔려있는 library의 경우 위에 install_requires
 '''
 
 
-#repository: C:\Users\MoongiChoi\Desktop\MG\양식, 코드 등\Python\Library\sequentPSS
+#repository: C:\Users\MoongiChoi\Desktop\MG\양식, 코드 등\Python\Library\indoorContact
 
 
 
