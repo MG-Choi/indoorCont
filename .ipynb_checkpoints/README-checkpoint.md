@@ -98,7 +98,9 @@ ic.simul_clip_export('C:/Users/', result_df, space, 'result_clip.mp4')
 
 ```
 
+![screenshot](/indoorContact/screenshot/contact_exper.png)
 
+movie clip:
 ![movie clip of ABM simulation](/indoorContact/screenshot/contact_exper.mp4)
 
 
