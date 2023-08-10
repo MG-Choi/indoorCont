@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'indoorContact',
-    version = '0.0.4',
+    version = '0.0.5',
     description = "ABM pedestrian simulation counting indoor contact",
     url = 'https://github.com/MG-Choi/indoorCont.git',
     author = 'MoongiChoi',

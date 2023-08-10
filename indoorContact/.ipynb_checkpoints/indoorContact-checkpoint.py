@@ -1532,7 +1532,45 @@ def move(ID, t, each_sec, previous_X, previous_Y, dest_df, speed, space, activit
 # In[9]:
 
 
-def contact_Simulation(speed = [1.55, 0.18], activity = 3, chair_scenario = None, group_scenario = None, totalPop = 10, space = None, entrance = None, entrance_Interval = 1, stayTime = None, total_time = 100):
+def contact_Simulation(speed = [0.75, 1.8], activity = 3, chair_scenario = None, group_scenario = None, totalPop = 10, space = None, entrance = None, entrance_Interval = 1, stayTime = None, total_time = 100):
+    '''
+    run ABM pedestrian simulation with parameters and return result_df
+        
+    Parameters
+    ----------
+    speed: list[min, max], uniformly distribution
+    activity: numeric value that indicates how people move actively. typically 0 to 10
+    chair_scenario: list[attractiveness, starttime, endtime], time unit: second, attractiveness: 0 to 10 (if it is high, high likely to sit), e.g., [3, 10, 20]
+    group_scenario: list[percentage of pop, [groupMinNm, groupMaxNum],[grouptime-mean, group-time SD]], e.g., [0.5, [2,3], [50, 10]] 
+    totalPop: total population
+    entrance: location of entrnace. e.g., {'x': [15,15], 'y': [0,3]}
+    entrance_Interval: interval time of people's entrance.
+    stayTime: list[mean, Standard deviation], e.g., [40, 10]
+    total_time: total stay time in indoor space
+    
+    
+    Returns
+    -------
+    DataFrame
+        A comma-separated values (csv) file is returned as two-dimensional
+        data structure with labeled axes.
+
+    Examples
+    --------
+        
+    import indoorContact as ic
+    --- basic ---
+    >>> result_df = ic.contact_Simulation(speed = [0.75, 1.8], activity = 5, totalPop = 10, space = space, entrance = entrance, total_time =100)
+    
+    --- using chair scenario ---
+    >>> space, obstacles_loc = ic.makeSpace(space_x = 10, space_y = 10, obstacles = 10, chairs = 5)
+    >>> result_df = ic.contact_Simulation(speed = [0.75, 1.8], activity = 5, chair_scenario = [3, 10, 20], totalPop = 10, space = space, entrance = entrance, total_time =100)
+    
+    --- using group scenario ---
+    >>> space, obstacles_loc = ic.makeSpace(space_x = 10, space_y = 10, obstacles= 10)
+    >>> result_df = ic.contact_Simulation(speed = [0.75, 1.8], activity = 5, group_scenario = [0.5, [2,3], [50, 10]], totalPop = 15, space = space, total_time =100)
+    
+    '''
     
     #chair_scenario = [attractiveness,starttime, endtime] - time unit: second, attractiveness: 0 ~ 10 (높으면 의자에 자주 앉음)
     #entrance_Interval = seconds (1~60), or posibility (0.1~1) 1: entrance by 1 second, 0.1: 10% chance of entrance by 1 second
@@ -1931,10 +1969,34 @@ def makeGroups(group_scenario, space, dest_df, previous_XY, group_NofMembers, gr
     return groupID
 
 
-# In[14]:
+# In[16]:
 
 
 def simul_clip_export(path, result_df, space, save_name):
+    '''
+    export simulation movie clip
+        
+    Parameters
+    ----------
+    path: repository where the movie clip of simulation is saved.
+    result_df: result df of simulation from contact_Simulation function
+    space: space data from makeSpace function
+    save_name: exported movie clip name
+    
+    
+    Returns
+    -------
+    movie clip
+
+    Examples
+    --------
+        
+    import indoorContact as ic
+    
+    >>> simul_clip_export('D:/Users', result_df, space, 'contact_experiment.mp4')
+    
+    
+    '''
     df = result_df.copy()
     df = df.astype({'X' : 'float', 'Y' : 'float'})
     
@@ -1957,10 +2019,13 @@ def simul_clip_export(path, result_df, space, save_name):
         plt.ylim([0,len(space)])
         camera.snap()
     anim = camera.animate(blit=True)
-    anim.save(path + '/' + save_name + '.mp4')
+    anim.save(path + '/' + save_name)
 
 
 # In[ ]:
+
+
+
 
 
 

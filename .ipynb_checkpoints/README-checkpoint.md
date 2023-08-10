@@ -15,8 +15,6 @@ indoorContact / version 0.0.7
 ### 1. add space from data or make space
 
 ``` python
-import indoorContact as ic
-
 
 
 
