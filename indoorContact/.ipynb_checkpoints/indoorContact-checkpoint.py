@@ -2023,9 +2023,3 @@ def simul_clip_export(path, result_df, space, save_name):
 
 
 # In[ ]:
-
-
-
-
-
-
