@@ -27,9 +27,8 @@ indoorContact / version 0.1.0
 
 ### Agent's path selection avoiding obstacles
 
-<p align="center">
 <img src="/indoorContact/screenshot/Algorithm1.png" alt="Path selection avoiding obstacles" width="500"/>
-</p>
+
 
 ###### The algorithm emphasizes a straight route to a designated destination. If obstacles block this direct path, the agent chooses one of eight directions closest to the target. By repetitively applying this method, the algorithm avoids barriers and finds an optimal or nearly optimal route.
 ###### Specifically, the agent's main action is 'Check Path'. Here, it ascertains if any barriers \(O\) lie between its current spot \(P_{current}\) and the goal \(P_{dest}\). If no obstructions exist, it indicates a straight path. When there's a direct route, the vector \(\Delta P\), which showcases the agent's subsequent location when traveling at speed \(s\), turns into a unit direction vector normalized by the true distance from the current to the target spot. In essence, the agent shifts by \(\Delta P\) from its current spot, concluding the algorithm. 
@@ -38,16 +37,10 @@ indoorContact / version 0.1.0
 
 ### Measuring contact time between agents
 
-<p align="center">
   <img src="/indoorContact/screenshot/Equation2.png" alt="Measuring contact time between agents" width="450"/>
-</p>
+
 
 ###### The equation determines the contact duration between individual <i>i</i> and other agents <i>k</i> by segmenting each trajectory into 0.1-second interval vertices <i>j</i>. It then calculates the Euclidean distance <i>d</i> between matching vertices <i>j</i>. If this distance is under 6 feet (or 1.8m), 0.1 gets added to the contact sec. By executing this for all trajectories of <i>i</i>, the duration <i>i</i> has been in contact with <i>k</i> is gauged. Figure 3 depicts this process: when two agents reside within 6 feet while traversing three vertices, the contact sec for that scenario equals 0.3.
-
-
-
-
-
 
 
 
@@ -149,11 +142,20 @@ ic.simul_clip_export('C:/Users/', result_df, space, 'result_clip.mp4')
 
 ```
 
-![screenshot](/indoorContact/screenshot/contact_exper.png)
+<p align="center">
+<img src="/indoorContact/screenshot/contact_exper2.png" alt="Movement animation screenshot (Legend: Group proportion, Group size, Population, Obstacles)" width="600"/>
+</p>
+
+
 
 movie clip:
 ![movie clip of ABM simulation](/indoorContact/screenshot/contact_exper.mp4)
 
+
+
+<p align="center">
+<img src="/indoorContact/screenshot/contact_exper.mp4" alt="movie clip of ABM simulation" width="600"/>
+</p>
 
 ---
 
