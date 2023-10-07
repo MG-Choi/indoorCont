@@ -26,7 +26,7 @@ indoorContact / version 0.1.0
 ### Path selection avoiding obstacles
 
 
-<img src="/indoorContact/screenshot/Algorithm3.png" alt="Path selection avoiding obstacles" width="500"/>
+<img src="/indoorContact/screenshot/Algorithm1.png" alt="Path selection avoiding obstacles" width="500"/>
 
 ###### The algorithm emphasizes a straight route to a designated destination. If obstacles block this direct path, the agent chooses one of eight directions closest to the target. By repetitively applying this method, the algorithm avoids barriers and finds an optimal or nearly optimal route.
 ###### Specifically, the agent's main action is 'Check Path'. Here, it ascertains if any barriers \(O\) lie between its current spot \(P_{current}\) and the goal \(P_{dest}\). If no obstructions exist, it indicates a straight path. When there's a direct route, the vector \(\Delta P\), which showcases the agent's subsequent location when traveling at speed \(s\), turns into a unit direction vector normalized by the true distance from the current to the target spot. In essence, the agent shifts by \(\Delta P\) from its current spot, concluding the algorithm. 
