@@ -17,7 +17,9 @@ indoorContact / version 0.1.0
 
 ### Simulation process
 
+<p align="center">
 <img src="/indoorContact/screenshot/Fig1.png" alt="Overview of simulation framework" width="700"/>
+</p>
 
 ###### The simulation process, as depicted in Figure 1, begins with the creation of an indoor space, followed by the initialization of parameters. The indoor space is determined by specifying the width and height in meters, with the option to add a specified number of obstacles. These obstacles, each measuring 1m by 1m, are randomly deployed within the space. Entrances are created based on the specified number and coordinates, allowing agents to enter and exit at these positions. Furthermore, we can import the indoor space in a grid format that includes shape, obstacle placement and size, and entrance specifications, which offers flexibility in simulating various spatial configurations for users.
 ###### Following the creation of the indoor space, global parameters, such as group proportion, population, and simulation duration, are set. Subsequently, 'n' agents are generated, each endowed with individual attributes like speed and activeness. The simulation starts when the first agent enters the space, setting the beginning of the simulation time. Concurrently, a time-stamped table is generated, recording attributes such as agent position, group association, and contact count for each time unit. This data can be visualized in a movement animation, illustrating how individuals form groups and move within the indoor space over time.
@@ -25,8 +27,9 @@ indoorContact / version 0.1.0
 
 ### Agent's path selection avoiding obstacles
 
-
+<p align="center">
 <img src="/indoorContact/screenshot/Algorithm1.png" alt="Path selection avoiding obstacles" width="500"/>
+</p>
 
 ###### The algorithm emphasizes a straight route to a designated destination. If obstacles block this direct path, the agent chooses one of eight directions closest to the target. By repetitively applying this method, the algorithm avoids barriers and finds an optimal or nearly optimal route.
 ###### Specifically, the agent's main action is 'Check Path'. Here, it ascertains if any barriers \(O\) lie between its current spot \(P_{current}\) and the goal \(P_{dest}\). If no obstructions exist, it indicates a straight path. When there's a direct route, the vector \(\Delta P\), which showcases the agent's subsequent location when traveling at speed \(s\), turns into a unit direction vector normalized by the true distance from the current to the target spot. In essence, the agent shifts by \(\Delta P\) from its current spot, concluding the algorithm. 
@@ -36,7 +39,7 @@ indoorContact / version 0.1.0
 ### Measuring contact time between agents
 
 <p align="center">
-  <img src="/indoorContact/screenshot/Equation2.png" alt="Measuring contact time between agents" width="500"/>
+  <img src="/indoorContact/screenshot/Equation2.png" alt="Measuring contact time between agents" width="450"/>
 </p>
 
 ###### The equation determines the contact duration between individual <i>i</i> and other agents <i>k</i> by segmenting each trajectory into 0.1-second interval vertices <i>j</i>. It then calculates the Euclidean distance <i>d</i> between matching vertices <i>j</i>. If this distance is under 6 feet (or 1.8m), 0.1 gets added to the contact sec. By executing this for all trajectories of <i>i</i>, the duration <i>i</i> has been in contact with <i>k</i> is gauged. Figure 3 depicts this process: when two agents reside within 6 feet while traversing three vertices, the contact sec for that scenario equals 0.3.
@@ -81,6 +84,7 @@ space, entrance, FDD, obstacles_loc = ic.makeSpace(space_x= 15, space_y = 10, ob
 print(space)
 ```
 
+
 ![space](/indoorContact/screenshot/space.png)
 
 This space is made of 0 and 1. 1 is obstacle (2: chair, 3: wall)
@@ -88,9 +92,9 @@ This space is made of 0 and 1. 1 is obstacle (2: chair, 3: wall)
 
 ###### FDD represents the degree of disturbance caused by obstacles to people's movement, ranging between 0 and 1. A higher value signifies more obstruction to smooth movement. This is depicted in Equation 1. Here, T signifies the total indoor area, O denotes the obstacle area, P is the total passage area excluding obstacles, and <i>n</i> represents the number of passage segments. For instance, in Figure 2, with no obstacles, FDD is 0, whereas a fully obstructed space yields an FDD of 1. If there's a single passage, FDD equals 0.5, and with three passages, it's 0.833.
 
-
+<p align="center">
 <img src="/indoorContact/screenshot/Fig2.png" alt="FDD (Flow Disturbance Degree)" width="450"/>
-
+</p>
 
 
 
