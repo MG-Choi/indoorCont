@@ -18,7 +18,7 @@ indoorContact / version 0.1.0
 ### Simulation process
 
 <p align="center">
-<h>Overview of Simulation Framework</h>
+<h>Figure 1. Overview of Simulation Framework</h>
 </p>
 <p align="center">
 <img src="/indoorContact/screenshot/Fig1.png" alt="Overview of simulation framework" width="700"/>
@@ -30,6 +30,9 @@ indoorContact / version 0.1.0
 
 ### Agent's path selection avoiding obstacles
 
+<p align="center">
+<h>Algorithm 1. Path selection avoiding obstacles</h>
+</p>
 <img src="/indoorContact/screenshot/Algorithm1.png" alt="Path selection avoiding obstacles" width="500"/>
 
 
@@ -40,6 +43,9 @@ indoorContact / version 0.1.0
 
 ### Measuring contact time between agents
 
+<p align="center">
+<h>Equation 1. Measuring contact time between agents</h>
+</p>
   <img src="/indoorContact/screenshot/Equation2.png" alt="Measuring contact time between agents" width="450"/>
 
 
@@ -88,6 +94,10 @@ This space is made of 0 and 1. 1 is obstacle (2: chair, 3: wall)
 
 ###### FDD represents the degree of disturbance caused by obstacles to people's movement, ranging between 0 and 1. A higher value signifies more obstruction to smooth movement. This is depicted in Equation 1. Here, T signifies the total indoor area, O denotes the obstacle area, P is the total passage area excluding obstacles, and <i>n</i> represents the number of passage segments. For instance, in Figure 2, with no obstacles, FDD is 0, whereas a fully obstructed space yields an FDD of 1. If there's a single passage, FDD equals 0.5, and with three passages, it's 0.833.
 
+
+<p align="center">
+<h>Figure 2. FDD (Flow Disturbance Degree)</h>
+</p>
 <p align="center">
 <img src="/indoorContact/screenshot/Fig2.png" alt="FDD (Flow Disturbance Degree)" width="450"/>
 </p>
@@ -145,17 +155,21 @@ ic.simul_clip_export('C:/Users/', result_df, space, 'result_clip.mp4')
 
 ```
 
+
+<p align="center">
+<h>Figure 3. Movement animation screenshot (Legend: Group proportion, Group size, Population, Obstacles)</h>
+</p>
+
 <p align="center">
 <img src="/indoorContact/screenshot/contact_exper2.png" alt="Movement animation screenshot (Legend: Group proportion, Group size, Population, Obstacles)" width="600"/>
 </p>
 
 
 
-movie clip:
-![movie clip of ABM simulation](/indoorContact/screenshot/contact_exper.mp4)
 
-
-
+<p align="center">
+<h>Movie clip of ABM simulation</h>
+</p>
 <p align="center">
 <img src="/indoorContact/screenshot/contact_exper.mp4" alt="movie clip of ABM simulation" width="600"/>
 </p>
