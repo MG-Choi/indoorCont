@@ -18,6 +18,7 @@ indoorContact / version 0.1.0
 ### Simulation process
 
 <p align="center">
+    - Overview of simulation framework
 <img src="/indoorContact/screenshot/Fig1.png" alt="Overview of simulation framework" width="700"/>
 </p>
 
