@@ -11,11 +11,11 @@ indoorContact / version 0.1.0
 ```
 
 
-### Purpose
+### 1. Purpose
 
 ###### The purpose of this model is to observe the patterns of individual spatiotemporal contact in indoor space, which are shaped by the interactions between humans (agents) and their environment (e.g., other agents and indoor spatial structures).
 
-### Simulation process
+### 2. Simulation process
 
 <p align="center">
 <h>Figure 1. Overview of Simulation Framework</h>
@@ -28,7 +28,7 @@ indoorContact / version 0.1.0
 ###### Following the creation of the indoor space, global parameters, such as group proportion, population, and simulation duration, are set. Subsequently, 'n' agents are generated, each endowed with individual attributes like speed and activeness. The simulation starts when the first agent enters the space, setting the beginning of the simulation time. Concurrently, a time-stamped table is generated, recording attributes such as agent position, group association, and contact count for each time unit. This data can be visualized in a movement animation, illustrating how individuals form groups and move within the indoor space over time.
 
 
-### Agent's path selection avoiding obstacles
+### 3. Agent's path selection avoiding obstacles
 
 <p align="center">
 <h>Algorithm 1. Path selection avoiding obstacles</h>
@@ -41,7 +41,7 @@ indoorContact / version 0.1.0
 ###### Should obstacles block the straightforward route, the algorithm sets the minDist variable (indicating the distance to \(P_{dest}\)) to infinity. For each of the eight direction vectors \(d\), it formulates the potential direction vector \(\Delta P\) as the product of speed \(s\) and direction \(d\). If \(\Delta P\) gets the agent nearer to \(P_{dest}\) without any obstacle \(O\) interference, the optimal direction \(d_{best}\) updates to the present direction \(d\), and minDist gets updated. Post evaluating every direction, the agent advances in the \(d_{best}\) direction at speed \(s\). This loop continues until the agent arrives at \(P_{dest}\) or no viable routes remain.
 
 
-### Measuring contact time between agents
+### 4. Measuring contact time between agents
 
 <p align="center">
 <h>Equation 1. Measuring contact time between agents</h>
