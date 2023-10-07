@@ -174,16 +174,14 @@ ic.simul_clip_export('C:/Users/', result_df, space, 'result_clip.mp4')
 
 
 
-<p align="center">
-<h>--- Movie clip of ABM simulation ---</h>
-</p>
-<p align="center">
-<img src="/indoorContact/screenshot/contact_exper.mp4" alt="movie clip of ABM simulation" width="600"/>
-</p>
+--- Movie clip of ABM simulation ---
 
 https://youtube.com/shorts/c2OObeFbAQg?feature=share
+
 https://youtube.com/shorts/Jbbe1vRs6AU?feature=share
+
 https://youtube.com/shorts/pJMyV7u3Tw4?feature=share
+
 https://youtube.com/shorts/Rs5XBTqaasY?feature=share
 
 
