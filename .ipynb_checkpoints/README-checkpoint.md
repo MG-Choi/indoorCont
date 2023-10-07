@@ -18,8 +18,9 @@ indoorContact / version 0.1.0
 ### Simulation process
 
 <p align="center">
-    - Overview of simulation framework
 <img src="/indoorContact/screenshot/Fig1.png" alt="Overview of simulation framework" width="700"/>
+    
+    Overview of simulation framework
 </p>
 
 ###### The simulation process, as depicted in Figure 1, begins with the creation of an indoor space, followed by the initialization of parameters. The indoor space is determined by specifying the width and height in meters, with the option to add a specified number of obstacles. These obstacles, each measuring 1m by 1m, are randomly deployed within the space. Entrances are created based on the specified number and coordinates, allowing agents to enter and exit at these positions. Furthermore, we can import the indoor space in a grid format that includes shape, obstacle placement and size, and entrance specifications, which offers flexibility in simulating various spatial configurations for users.
