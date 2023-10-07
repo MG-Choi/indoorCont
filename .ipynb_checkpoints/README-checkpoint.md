@@ -89,7 +89,7 @@ print(space)
 <h>Figure 2. This space is made of 0 and 1 (1: Obstacle, 2: chair, 3: wall)</h>
 </p>
 <p align="center">
-<img src="/indoorContact/screenshot/space.png" alt="This space is made of 0 and 1 (1: Obstacle, 2: chair, 3: wall)" width="500"/>
+<img src="/indoorContact/screenshot/space.png" alt="This space is made of 0 and 1 (1: Obstacle, 2: chair, 3: wall)" width="350"/>
 </p>
 
 ###### FDD represents the degree of disturbance caused by obstacles to people's movement, ranging between 0 and 1. A higher value signifies more obstruction to smooth movement. This is depicted in Equation 1. Here, T signifies the total indoor area, O denotes the obstacle area, P is the total passage area excluding obstacles, and <i>n</i> represents the number of passage segments. For instance, in Figure 2, with no obstacles, FDD is 0, whereas a fully obstructed space yields an FDD of 1. If there's a single passage, FDD equals 0.5, and with three passages, it's 0.833.
@@ -123,10 +123,14 @@ result_df = ic.contact_Simulation(speed = [0.75, 1.8], activity = 5, group_scena
 
 ```
 
+<p align="center">
+<h>Figure 4. result dataframe of simulation</h>
+</p>
+<p align="center">
+<img src="/indoorContact/screenshot/result_df.head().png" alt=" result dataframe of simulation" width="750"/>
+</p>
 
-![df result](/indoorContact/screenshot/result_df.head().png)
 
-result dataframe of simulation. 
 - time: total simulation time
 - ID: unique ID of agent
 - Sec: each second that each agent stay for
@@ -157,7 +161,7 @@ ic.simul_clip_export('C:/Users/', result_df, space, 'result_clip.mp4')
 
 
 <p align="center">
-<h>Figure 3. Movement animation screenshot (Legend: Group proportion, Group size, Population, Obstacles)</h>
+<h>Figure 5. Movement animation screenshot (Legend: Group proportion, Group size, Population, Obstacles)</h>
 </p>
 
 <p align="center">
