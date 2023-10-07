@@ -30,9 +30,8 @@ indoorContact / version 0.1.0
 
 ### 3. Agent's path selection avoiding obstacles
 
-<p align="center">
-<h>Algorithm 1. Path selection avoiding obstacles</h>
-</p>
+Algorithm 1. Path selection avoiding obstacles
+
 <img src="/indoorContact/screenshot/Algorithm1.png" alt="Path selection avoiding obstacles" width="500"/>
 
 
@@ -43,9 +42,9 @@ indoorContact / version 0.1.0
 
 ### 4. Measuring contact time between agents
 
-<p align="center">
-<h>Equation 1. Measuring contact time between agents</h>
-</p>
+
+Equation 1. Measuring contact time between agents
+
   <img src="/indoorContact/screenshot/Equation2.png" alt="Measuring contact time between agents" width="450"/>
 
 
