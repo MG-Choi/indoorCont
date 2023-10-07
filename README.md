@@ -85,17 +85,18 @@ space, entrance, FDD, obstacles_loc = ic.makeSpace(space_x= 15, space_y = 10, ob
 print(space)
 ```
 
-
-![space](/indoorContact/screenshot/space.png)
-
-This space is made of 0 and 1. 1 is obstacle (2: chair, 3: wall)
-
+<p align="center">
+<h>Figure 2. This space is made of 0 and 1 (1: Obstacle, 2: chair, 3: wall)</h>
+</p>
+<p align="center">
+<img src="/indoorContact/screenshot/space.png" alt="This space is made of 0 and 1 (1: Obstacle, 2: chair, 3: wall)" width="500"/>
+</p>
 
 ###### FDD represents the degree of disturbance caused by obstacles to people's movement, ranging between 0 and 1. A higher value signifies more obstruction to smooth movement. This is depicted in Equation 1. Here, T signifies the total indoor area, O denotes the obstacle area, P is the total passage area excluding obstacles, and <i>n</i> represents the number of passage segments. For instance, in Figure 2, with no obstacles, FDD is 0, whereas a fully obstructed space yields an FDD of 1. If there's a single passage, FDD equals 0.5, and with three passages, it's 0.833.
 
 
 <p align="center">
-<h>Figure 2. FDD (Flow Disturbance Degree)</h>
+<h>Figure 3. FDD (Flow Disturbance Degree)</h>
 </p>
 <p align="center">
 <img src="/indoorContact/screenshot/Fig2.png" alt="FDD (Flow Disturbance Degree)" width="450"/>
