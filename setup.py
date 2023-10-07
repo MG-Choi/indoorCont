@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'indoorContact',
-    version = '0.0.6',
+    version = '0.1.0',
     description = "ABM pedestrian simulation counting indoor contact",
     url = 'https://github.com/MG-Choi/indoorCont.git',
     author = 'MoongiChoi',
@@ -10,7 +10,7 @@ setup(
     packages = find_packages(),
     package_data = {'indoorContact': ['sampleData/obstacle_space.xlsx', 'sampleData/exp_space2.xlsx', 'sampleData/exp_space3.xlsx']},
     include_package_data = True,
-    install_requires = ['matplotlib==3.7.1', 'pandas==1.5.3', 'numpy==1.24.3', 'tqdm==4.65.0', 'celluloid==0.2.0', 'seaborn==0.12.2']
+    install_requires = ['matplotlib', 'pandas', 'numpy', 'tqdm', 'celluloid>=0.2.0', 'seaborn>=0.12.2']
 )
 
 

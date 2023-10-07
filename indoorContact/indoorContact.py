@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import matplotlib.pyplot as plt
@@ -21,7 +21,7 @@ from celluloid import Camera
 import seaborn as sns
 
 
-# In[3]:
+# In[2]:
 
 
 warnings.filterwarnings(action='ignore') 
@@ -29,7 +29,7 @@ warnings.filterwarnings(action='ignore')
 
 # ## data
 
-# In[4]:
+# In[3]:
 
 
 # change path to relative path - only for publishing
@@ -369,7 +369,7 @@ def computeFDD(space):
 #obstacle 하나 놓는다. fdd = 0: 아무것도 없음. 0.5이상: 한개 (외곽에 놓았을 때)
 
 
-# In[7]:
+# In[6]:
 
 
 def countContact(result_df):  
@@ -569,7 +569,7 @@ def countContact(result_df):
             # 한사람의 위치: previous_XY['X'][i], Y = previous_XY['Y'][i] -> X, Y
 
 
-# In[8]:
+# In[7]:
 
 
 # Move
@@ -1529,7 +1529,7 @@ def move(ID, t, each_sec, previous_X, previous_Y, dest_df, speed, space, activit
     return X, Y, Vertex, sit, chair, groupY, groupedP
 
 
-# In[9]:
+# In[49]:
 
 
 def contact_Simulation(speed = [0.75, 1.8], activity = 3, chair_scenario = None, group_scenario = None, totalPop = 10, space = None, entrance = None, entrance_Interval = 1, stayTime = None, total_time = 100):
@@ -1772,10 +1772,16 @@ def contact_Simulation(speed = [0.75, 1.8], activity = 3, chair_scenario = None,
 #                 result_df = pd.concat([result_df, tem_df], ignore_index=True)
                 # result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP, 
                 #                                'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP, 
-                #                               'exit': [dest_df.loc[ID, 'dest_x'], dest_df.loc[ID, 'dest_y']], 'STUCK': dest_df.loc[ID, 'STUCK']}, ignore_index=True)
-                result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP,
-                                              'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP}, ignore_index=True)
-                
+#                 #                               'exit': [dest_df.loc[ID, 'dest_x'], dest_df.loc[ID, 'dest_y']], 'STUCK': dest_df.loc[ID, 'STUCK']}, ignore_index=True)
+#                 result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP,
+#                                               'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP}, ignore_index=True)
+
+                new_row = pd.DataFrame({'time': [t], 'ID': [ID], 'Sec': [each_sec], 'X': [X], 'Y': [Y], 'Contact_count': [0], 
+                                        'totalP': [currentP], 'Vertex': [Vertex], 'Speed': [eachSpeed], 'Sit': [sit], 'Chair': [chair], 'group': [groupY], 'groupedP': [groupedP],
+                                        'exit': [dest_df.loc[ID, 'exit']], 'STUCK': [dest_df.loc[ID, 'STUCK']]})
+                result_df = pd.concat([result_df, new_row], ignore_index=True)
+
+
             else:   # Moving
                 if dest_df['stayTime'][ID] == each_sec and dest_df.loc[ID, 'go_exit'] == 0: # 이 agent가 나갈 시간이 된다면,
                     dest_df.loc[ID, 'exit'] = 1
@@ -1834,8 +1840,11 @@ def contact_Simulation(speed = [0.75, 1.8], activity = 3, chair_scenario = None,
                                     # result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP, 
                                     #                                'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP, 
                                     #                               'exit': [dest_df.loc[ID, 'dest_x'], dest_df.loc[ID, 'dest_y']], 'STUCK': dest_df.loc[ID, 'STUCK']}, ignore_index=True)
-                                    result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP, 
-                                                                   'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP}, ignore_index=True)
+                                    new_row = pd.DataFrame({'time': [t], 'ID': [ID], 'Sec': [each_sec], 'X': [X], 'Y': [Y], 'Contact_count': [0], 
+                                                            'totalP': [currentP], 'Vertex': [Vertex], 'Speed': [eachSpeed], 'Sit': [sit], 'Chair': [chair], 'group': [groupY], 'groupedP': [groupedP],
+                                                            'exit': [dest_df.loc[ID, 'exit']], 'STUCK': [dest_df.loc[ID, 'STUCK']]})
+                                    result_df = pd.concat([result_df, new_row], ignore_index=True)
+                                    
                             else:
                                 None
 
@@ -1866,8 +1875,13 @@ def contact_Simulation(speed = [0.75, 1.8], activity = 3, chair_scenario = None,
                         # result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP, 
                         #                                'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP, 
                         #                               'exit': [dest_df.loc[ID, 'dest_x'], dest_df.loc[ID, 'dest_y']], 'STUCK': dest_df.loc[ID, 'STUCK']}, ignore_index=True)
-                        result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP, 
-                                                       'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP}, ignore_index=True)
+#                         result_df = result_df.append({'time': t ,'ID' : ID, 'Sec' : each_sec, 'X' : X, 'Y' : Y, 'Contact_count' : 0, 'totalP': currentP, 
+#                                                        'Vertex': Vertex, 'Speed': eachSpeed, 'Sit': sit, 'Chair': chair, 'group': groupY, 'groupedP': groupedP}, ignore_index=True)
+                        
+                        new_row = pd.DataFrame({'time': [t], 'ID': [ID], 'Sec': [each_sec], 'X': [X], 'Y': [Y], 'Contact_count': [0], 
+                                                'totalP': [currentP], 'Vertex': [Vertex], 'Speed': [eachSpeed], 'Sit': [sit], 'Chair': [chair], 'group': [groupY], 'groupedP': [groupedP],
+                                                'exit': [dest_df.loc[ID, 'exit']], 'STUCK': [dest_df.loc[ID, 'STUCK']]})
+                        result_df = pd.concat([result_df, new_row], ignore_index=True)
 
         #Select previous ID and other infor (X,Y...)
         previous_XY = result_df[result_df['time'] == t]    #previous appneded df
@@ -1969,7 +1983,7 @@ def makeGroups(group_scenario, space, dest_df, previous_XY, group_NofMembers, gr
     return groupID
 
 
-# In[16]:
+# In[12]:
 
 
 def simul_clip_export(path, result_df, space, save_name):
@@ -2021,5 +2035,3 @@ def simul_clip_export(path, result_df, space, save_name):
     anim = camera.animate(blit=True)
     anim.save(path + '/' + save_name)
 
-
-# In[ ]:

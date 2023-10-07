@@ -10,6 +10,20 @@ indoorContact / version 0.0.7
 !pip install indoorContact
 ```
 
+
+### Purpose
+
+###### The purpose of this model is to observe the patterns of individual spatiotemporal contact in indoor space, which are shaped by the interactions between humans (agents) and their environment (e.g., other agents and indoor spatial structures).
+
+### Simulation process
+
+###### The simulation process, as depicted in Figure 1, begins with the creation of an indoor space, followed by the initialization of parameters. The indoor space is determined by specifying the width and height in meters, with the option to add a specified number of obstacles. These obstacles, each measuring 1m by 1m, are randomly deployed within the space. Entrances are created based on the specified number and coordinates, allowing agents to enter and exit at these positions. Furthermore, we can import the indoor space in a grid format that includes shape, obstacle placement and size, and entrance specifications, which offers flexibility in simulating various spatial configurations for users.
+###### Following the creation of the indoor space, global parameters, such as group proportion, population, and simulation duration, are set. Subsequently, 'n' agents are generated, each endowed with individual attributes like speed and activeness. The simulation starts when the first agent enters the space, setting the beginning of the simulation time. Concurrently, a time-stamped table is generated, recording attributes such as agent position, group association, and contact count for each time unit. This data can be visualized in a movement animation, illustrating how individuals form groups and move within the indoor space over time.
+
+<img src="/sequentPSS/screenshot/Fig1.png" alt="Overview of simulation framework" width="700"/>
+
+
+
 ## Usage (Run simulation and export movie clip)
 
 ### 1. add space from data or make space
@@ -44,6 +58,13 @@ print(space)
 ![space](/indoorContact/screenshot/space.png)
 
 This space is made of 0 and 1. 1 is obstacle (2: chair, 3: wall)
+
+
+<img src="/sequentPSS/screenshot/Fig2.png" alt="FDD (Flow Disturbance Degree)" width="600"/>
+
+###### FDD represents the degree of disturbance caused by obstacles to people's movement, ranging between 0 and 1. A higher value signifies more obstruction to smooth movement. This is depicted in Equation 1. Here, T signifies the total indoor area, O denotes the obstacle area, P is the total passage area excluding obstacles, and <i>n</i> represents the number of passage segments. For instance, in Figure 2, with no obstacles, FDD is 0, whereas a fully obstructed space yields an FDD of 1. If there's a single passage, FDD equals 0.5, and with three passages, it's 0.833.
+
+
 
 
 
