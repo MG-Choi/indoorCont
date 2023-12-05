@@ -14,7 +14,7 @@ import numpy as np
 from tqdm import tqdm
 from random import *
 import random
-import os #os, ramdom의 경우 기본적으로 주어지기 때문에 setup.py에 하지 않는다.
+import os 
 import warnings
 
 from celluloid import Camera
