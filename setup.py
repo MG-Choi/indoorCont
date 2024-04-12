@@ -10,7 +10,7 @@ setup(
     packages = find_packages(),
     package_data = {'indoorContact': ['sampleData/obstacle_space.xlsx', 'sampleData/exp_space2.xlsx', 'sampleData/exp_space3.xlsx']},
     include_package_data = True,
-    install_requires = ['matplotlib', 'pandas', 'numpy', 'tqdm', 'celluloid>=0.2.0', 'seaborn>=0.12.2']
+    install_requires = ['matplotlib','pandas', 'numpy', 'tqdm', 'celluloid>=0.2.0', 'seaborn>=0.12.2']
 )
 
 
